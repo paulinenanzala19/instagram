@@ -21,4 +21,27 @@ class DetailView(DetailView):
     template='detail.html'
     context_obj='post'
 
-    
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'caption', 'image']
+    template_name = 'instagram/post.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'image', 'caption']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def test_function(self):
+        post = self.get_object()
+        if self.request.user == post.user:
+            return True
+        else:
+            return False
