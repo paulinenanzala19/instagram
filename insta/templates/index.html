@@ -9,18 +9,10 @@
             <div class=" card-header pb-2 row m-0" style="margin-right: 0 !important;">
                 <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
                     <img class="rounded-circle mr-2 article-img"
-                        src="{{ post.image.url }}">
+                        src="{{ post.profile.image.url }}">
                         <a class="mr-2" href="">{{ post.user }}</a>
                 </div>
-                <!-- <div class="col-4 d-flex flex-row-reverse no-padding align-items-center"
-                    style="padding-right: 0 !important;">
-                    {% if post.user == user %}
-                    <a class="material-icons ml-2" style="font-size: 14px"
-                        href="{% url 'post-delete' post.id %}">delete</a>
-                    <a class="material-icons ml-2" style="font-size: 14px"
-                        href="{% url 'post-update' post.id %}">update</a>
-                    {%  endif %}
-                </div> -->
+              
             </div>
             <div class="card-body mb-2 align-items-center">
                 <a href="">

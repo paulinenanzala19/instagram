@@ -4,7 +4,7 @@ from .forms import *
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from instagram.models import *
+from insta.models import *
 
 # Create your views here.
 @csrf_protect
@@ -29,9 +29,9 @@ def profile(request):
         profile_form = ProfileUpdateForm(
             request.POST, request.FILES, instance=request.user)
 
-        if  profile_form.is_valid():
+        if  prof_form.is_valid():
             user_form.save()
-            profile_form.save()
+            prof_form.save()
 
             return redirect('home')
 

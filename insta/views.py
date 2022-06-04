@@ -3,6 +3,10 @@ from django.views.generic import ListView, DetailView,CreateView,UpdateView
 from django.http  import HttpResponse
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from users.models import *
+from .forms import *
+from dataclasses import fields
+from django.urls import reverse
 
 
 # Create your views here.
@@ -23,28 +27,28 @@ class DetailView(DetailView):
     template='index.html'
     context_obj='post'
 
-def post(request, pk):
-    post = Post.objects.get(pk=pk)
-    user = request.user
-    form = CommentForm()
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = Comment(
-                author= user,
-                content=form.cleaned_data["content"],
-                post=post
-            )
-            comment.save()
+# def post(request, pk):
+#     post = Post.objects.get(pk=pk)
+#     user = request.user
+#     form = CommentForm()
+#     if request.method == 'POST':
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comment = Comment(
+#                 author= user,
+#                 content=form.cleaned_data["content"],
+#                 post=post
+#             )
+#             comment.save()
 
-    comments = Comment.objects.filter(post=post).order_by('-date_posted')
-    context = {
-        "post": post,
-        "comments": comments,
-        "form": form,
-    }
+#     comments = Comment.objects.filter(post=post).order_by('-date_posted')
+#     context = {
+#         "post": post,
+#         "comments": comments,
+#         "form": form,
+#     }
 
-    return self.get(self, request, pk, context)
+#     return self.get(self, request, pk, context)
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
