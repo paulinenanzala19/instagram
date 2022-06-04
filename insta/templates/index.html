@@ -1,1 +1,58 @@
 {%extends 'base.html'%}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container justify-content-center">
+    {% for post in posts %}
+    <article class="card mt-3 card-custom hovered-tweet">
+        <div style="word-break: break-all;">
+            <div class=" card-header pb-2 row m-0" style="margin-right: 0 !important;">
+                <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
+                    <img class="rounded-circle mr-2 article-img"
+                        src="{{ post.image.url }}">
+                        <a class="mr-2" href="">{{ post.user }}</a>
+                </div>
+                <!-- <div class="col-4 d-flex flex-row-reverse no-padding align-items-center"
+                    style="padding-right: 0 !important;">
+                    {% if post.user == user %}
+                    <a class="material-icons ml-2" style="font-size: 14px"
+                        href="{% url 'post-delete' post.id %}">delete</a>
+                    <a class="material-icons ml-2" style="font-size: 14px"
+                        href="{% url 'post-update' post.id %}">update</a>
+                    {%  endif %}
+                </div> -->
+            </div>
+            <div class="card-body mb-2 align-items-center">
+                <a href="">
+                    <img src="{{ post.image.url }}" alt="" class="img-responsive" width="100%">
+                    <p class="mb-4">
+                        {{ post.caption }}
+                    </p>
+                </a>
+                <div class="card-footer row">
+                    <div class="col-6" style="display: flex;">
+                        <small style="opacity: 0.8; color: rgba(255, 255, 255, 0.1) !important;">
+                            <!-- Like Buttons Here -->
+                            <a href="">
+                                <i style="color: red; font-size: 16px;" class="fa fa-heart"></i>
+                                {{post.likes}} like(s)
+                            </a>
+                        </small>
+                        <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
+                            <a href="">
+                                <i style=" font-size: 16px; color: blue;" class="fa fa-comment"></i>
+                                {{ post.comments }} comment(s)
+                            </a>
+                        </small>
+                    </div>
+                    <div class="col-6">
+                        <small style="opacity: 0.8; " class="white-important d-flex full-width flex-row-reverse">
+                            {{ post.pub_date | date:"H:i l, d.m.y" }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

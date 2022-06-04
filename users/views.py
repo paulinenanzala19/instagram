@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,HttpResponse
+from django.contrib import messages
 from .forms import *
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
@@ -20,3 +21,28 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'users/registration.html', {'form':form})
+
+def profile(request):
+    if request.method == 'POST':
+
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user)
+
+        if  profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+
+            return redirect('home')
+
+    else:
+        
+        prof_form = ProfileUpdateForm(instance=request.user)
+        user_form = UserUpdateForm(instance=request.user)
+
+        context = {
+            'user_form':user_form,
+            'prof_form': profile_form
+        }
+
+        return render(request, 'users/profile.html', context)

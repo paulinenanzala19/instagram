@@ -6,7 +6,7 @@ from users.models import *
 # Create your models here.
 class Post(models.Model):
     image=models.ImageField(upload_to = 'images/', default='no image')
-    title = models.CharField(max_length=100, default='SOME STRING')
+    title = models.CharField(max_length=100, default='')
     caption = models.TextField(max_length=300, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default="")
     likes=models.IntegerField(null=True, default=0)
