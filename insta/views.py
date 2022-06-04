@@ -5,10 +5,20 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    posts=Post.objects.all()
+    context{
+    'posts':Post.objects.all()
+    }
     
-    return render(request, 'index.html',{'posts':posts})
+    return render(request, 'index.html',context)
 
+class PostView(ListView):
+    model=Post
+    template='index.html'
+    context_obj='posts'
 
+class DetailView(DetailView):
+    model=post
+    template='detail.html'
+    context_obj='post'
 
     
