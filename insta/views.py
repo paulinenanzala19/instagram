@@ -17,10 +17,10 @@ def home(request):
     
     return render(request, 'index.html',context)
 
-class PostListView(ListView):
-    model=Post
-    template_name='index.html'
-    context_obj='posts'
+# class PostListView(ListView):
+#     model=Post
+#     template_name='index.html'
+#     context_obj='posts'
 
 class DetailView(DetailView):
     model=Post
