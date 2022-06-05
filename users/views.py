@@ -12,7 +12,7 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            LOGIN_REDIRECT_URL='instagram-index'
+            LOGIN_REDIRECT_URL='index'
             form.save()
 
             username = form.cleaned_data.get('username')
