@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 from insta.models import *
 
 # Create your views here.
-@csrf_protect
+
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            LOGIN_REDIRECT_URL='index'
+            
             form.save()
 
             username = form.cleaned_data.get('username')
@@ -20,7 +20,7 @@ def register(request):
             return redirect('login')
     else:
         form = RegistrationForm()
-    return render(request, 'users/registration.html', {'form':form})
+    return render(request, 'users/registration_form.html', {'form':form})
 
 def profile(request):
     if request.method == 'POST':
