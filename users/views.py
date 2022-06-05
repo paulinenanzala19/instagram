@@ -26,14 +26,14 @@ def profile(request):
     if request.method == 'POST':
 
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(
+        prof_form = ProfileUpdateForm(
             request.POST, request.FILES, instance=request.user)
 
         if  prof_form.is_valid():
             user_form.save()
             prof_form.save()
 
-            return redirect('home')
+            return redirect('profile')
 
     else:
         
@@ -42,7 +42,7 @@ def profile(request):
 
         context = {
             'user_form':user_form,
-            'prof_form': profile_form
+            'prof_form': prof_form
         }
 
-        return render(request, 'users/profile.html', context)
+        return render(request, 'profile/profile.html', context)
