@@ -4,7 +4,10 @@
 <div class="container">
   <div class="row">
     <!-- Empty div -->
-    <div class="col-md-4"></div>
+    <div class="col-md-5" style="padding-top: 55px;">
+      <img src="https://ucarecdn.com/f0e65890-b403-4316-8068-d1dd58c8f80f/instagram.png" alt="instagram">
+    </div>
+    <div class="col-md-1"></div>
     <div class="col-md-4">
       {% if form.errors %}
         <p> Password or Username is incorrect </p>
@@ -27,6 +30,7 @@
             <input type="hidden" name="next" value="{{next}}">
 
           </form>
+          <p>Dont have an account? <a href="/accounts/register/">sign up</a></p>
 
         </div>
 

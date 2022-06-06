@@ -17,9 +17,9 @@
             <div class="card-body mb-2 align-items-center">
                 <a href="">
                     <img src="{{ post.image.url }}" alt="" class="img-responsive" width="50%">
-                    <p class="mb-4">
+                    <!-- <p class="mb-4">
                         {{ post.caption }}
-                    </p>
+                    </p> -->
                 </a>
                 <div class="card-footer row">
                     <div class="col-6" style="display: flex;">
@@ -36,6 +36,12 @@
                                 {{ post.comments }} comment(s)
                             </a>
                         </small>
+                        
+                    </div>
+                    <div>
+                        <p class="mb-4">
+                            {{ post.caption }}
+                        </p>
                     </div>
                     <div class="col-6">
                         <small style="opacity: 0.8; " class="white-important d-flex full-width flex-row-reverse">
