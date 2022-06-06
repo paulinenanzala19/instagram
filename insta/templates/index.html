@@ -1,17 +1,29 @@
 {%extends 'base.html'%}
 {% load bootstrap3 %}
 
+
 {% block content %}
+{{block.super}}
 <div class="container justify-content-center">
     {% for post in posts %}
     <article class="card mt-3 card-custom hovered-tweet">
         <div style="word-break: break-all;">
             <div class=" card-header pb-2 row m-0" style="margin-right: 0 !important;">
-                <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
-                    <img class="rounded-circle mr-2 article-img"
-                        src="{{ post.user.profile.image.url }}">
-                        <a class="mr-2" href="">{{ post.user }}</a>
+                <div style="padding-left: 0px !important;" class="col-4 no-padding d-flex align-items-center">
+                {% if user.profile.pic%}              
+                <img src="../../media/{{user.profile.pic}}" alt="{{ post.user}}" height="100px" width="100px" style="border-radius: 50%;">
+                {% else %}
+                <img src="../../media/images/flower5.jpg" alt="{{ post.user}}" height="100px" width="100px" style="border-radius: 50%;">
+                {% endif %}
                 </div>
+                <!-- <div class="col-sm-10 col-md-4 text-center">
+                {% if user.profile.pic%}
+                <img src="../../media/{{user.profile.pic}}" alt="" height="180px" width="180px" class="profile-pic">
+                {% else %}
+                <img src="../../media/images/flower5.jpg" alt="" height="180px" width="180px" class="profile-pic">
+                {% endif %}
+                <p>{{ post.user}}</p>
+            </div> -->
               
             </div>
             <div class="card-body mb-2 align-items-center">
@@ -45,7 +57,7 @@
                     </div>
                     <div class="col-6">
                         <small style="opacity: 0.8; " class="white-important d-flex full-width flex-row-reverse">
-                            {{ post.pub_date | date:"H:i l, d.m.y" }}
+                            {{ post.pub_date | date }}
                         </small>
                     </div>
                 </div>
