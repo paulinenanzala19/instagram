@@ -76,3 +76,9 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return False
+
+def likes(request,pk):
+    post = Post.objects.get(pk=pk)
+    post.likes+=1
+    post.save()
+    return redirect('home')

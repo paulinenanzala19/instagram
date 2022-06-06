@@ -25,7 +25,7 @@
                     <div class="col-6" style="display: flex;">
                         <small style="opacity: 0.8; color: rgba(255, 255, 255, 0.1) !important;">
                             <!-- Like Buttons Here -->
-                            <a href="">
+                            <a href="{% url 'likes' post.pk %}">
                                 <i style="color: red; font-size: 16px;" class="fa fa-heart"></i>
                                 {{post.likes}} like(s)
                             </a>
