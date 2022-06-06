@@ -1,57 +1,55 @@
 {%extends 'base.html'%}
-{% load bootstrap3 %}
+
 
 
 {% block content %}
 {{block.super}}
-<div class="container justify-content-center">
+<div class="container justify-content-center" style="margin-top:50px ;">
     {% for post in posts %}
     <article class="card mt-3 card-custom hovered-tweet">
         <div style="word-break: break-all;">
-            <div class=" card-header pb-2 row m-0" style="margin-right: 0 !important;">
+            <div class=" card-header pb-2 row m-0" style="margin-left:1% !important; margin-bottom: 1%;">
                 <div style="padding-left: 0px !important;" class="col-4 no-padding d-flex align-items-center">
                 {% if user.profile.pic%}              
-                <img src="../../media/{{user.profile.pic}}" alt="{{ post.user}}" height="100px" width="100px" style="border-radius: 50%;">
+                <img src="../../media/{{user.profile.pic}}" alt="{{ post.user}}" height="50px" width="50px" style="border-radius: 50%;">
                 {% else %}
-                <img src="../../media/images/flower5.jpg" alt="{{ post.user}}" height="100px" width="100px" style="border-radius: 50%;">
+                <img src="../../media/images/flower5.jpg" alt="{{ post.user}}" height="50px" width="50px" style="border-radius: 50%;">
                 {% endif %}
-                </div>
-                <!-- <div class="col-sm-10 col-md-4 text-center">
-                {% if user.profile.pic%}
-                <img src="../../media/{{user.profile.pic}}" alt="" height="180px" width="180px" class="profile-pic">
-                {% else %}
-                <img src="../../media/images/flower5.jpg" alt="" height="180px" width="180px" class="profile-pic">
-                {% endif %}
-                <p>{{ post.user}}</p>
-            </div> -->
+                <strong>{{ post.user}}</strong>
+                </div>      
               
             </div>
             <div class="card-body mb-2 align-items-center">
                 <a href="">
                     <img src="{{ post.image.url }}" alt="" class="img-responsive" width="50%">
-                    <!-- <p class="mb-4">
-                        {{ post.caption }}
-                    </p> -->
+                    
                 </a>
-                <div class="card-footer row">
-                    <div class="col-6" style="display: flex;">
+                <div class="card-footer row" style="margin-left:2%;">
+                    <div class="col-6" style="display: flex; margin-top: 1%;">
                         <small style="opacity: 0.8; color: rgba(255, 255, 255, 0.1) !important;">
                             <!-- Like Buttons Here -->
                             <a href="{% url 'likes' post.pk %}">
-                                <i style="color: red; font-size: 16px;" class="fa fa-heart"></i>
-                                {{post.likes}} like(s)
+                            <span class="info" style="color:black ;"><i class="far fa-heart fa-2x" ></i></span>
+                                <!-- <i style="color: red; font-size: 20px;" class="fa fa-heart"></i> -->
+                                <p style="color: black;">{{post.likes}} likes</p>
+                            </a>
+                            
+                        </small>
+                        <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
+                            <a href="">
+                                <i style=" font-size: 22px; color:black;" class="far fa-comment"></i>
+                               
                             </a>
                         </small>
                         <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
                             <a href="">
-                                <i style=" font-size: 16px; color: blue;" class="fa fa-comment"></i>
-                                {{ post.comments }} comment(s)
+                                <i style=" font-size: 22px; color:black;" class="far fa-paper-plane"></i>
                             </a>
                         </small>
                         
                     </div>
                     <div>
-                        <p class="mb-4">
+                        <p class="mb-4"><b>{{post.user}}</b>
                             {{ post.caption }}
                         </p>
                     </div>

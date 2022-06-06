@@ -17,10 +17,10 @@ def register(request):
 
             username = form.cleaned_data.get('username')
             messages.success(request, f' Account for {username} has been created successfully!')
-            return redirect('login')
+            return redirect('home')
     else:
         form = RegistrationForm()
-    return render(request, 'users/registration_form.html', {'form':form})
+    return render(request, 'django_registration/registration_form.html', {'form':form})
 
 def profile(request):
     if request.method == 'POST':

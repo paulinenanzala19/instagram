@@ -77,6 +77,22 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         else:
             return False
 
+@login_required(login_url='/accounts/login/')
+def create_post(request):
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = UpdateForm(request.POST,request.FILES)
+        if form.is_valid():
+            p_form = form.save(commit=False)
+            p_form.user = current_user
+
+            p_form.save()
+        return redirect('home')
+    else:
+        form = UpdateForm()
+    return render(request,'newpost.html',{"form":form})
+
 def likes(request,pk):
     post = Post.objects.get(pk=pk)
     post.likes+=1
