@@ -5,7 +5,7 @@ This is an instagram clone
 Pauline Wafula
 
 ## Description
-InstaMe' is a web application that mimics a popular .This is through showing images in different categories and location. On clicking on an image, it is able to take you to a bigger image with description, category and location.A new user can also search an image using category. They can also copy and paste the link of the image.
+InstaMe' is a web application that mimics a popular .This is through creationg posts with caption in different categories and location. On clicking on an image, it is able to take you to a bigger image with description, category and location.A new user can also search an image using category. They can also copy and paste the link of the image.
 
 ## User Stories
 These are the behaviours/features that the application implements for use by a user.
