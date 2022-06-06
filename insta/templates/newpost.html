@@ -4,8 +4,8 @@
 <div class="container col-md-3 col-lg-4">
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
-		<fieldset class="form-group">
-			<legend class="mb-4">Add Post</legend>
+		<fieldset class="form-group" style="margin-top:8% ;">
+			<legend class="mb-2">Add Post</legend>
 			{{ form|crispy }}
 		</fieldset>
 

@@ -21,6 +21,11 @@ class Post(models.Model):
     def delete_post(self):
         self.delete()
 
+    @classmethod
+    def search_by_title(cls,search_term):
+        profiles=cls.objects.filter(title__icontains=search_term)
+        return profiles
+
 class Comment(models.Model):
     comment = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

@@ -10,6 +10,7 @@ urlpatterns=[
     path('',views.home, name='home'),
     path('<int:pk>',views.likes, name='likes'),
     path('create_post/',views.create_post,name='create_post'),
+    path('search/',views.search_results,name='search_results'),
     
    
 ]

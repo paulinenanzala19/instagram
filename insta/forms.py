@@ -12,7 +12,7 @@ class UpdateForm(forms.ModelForm):
     class Meta:
         model=Post
 
-        fields=['image','caption']
+        fields=['image','title','caption']
         exclude=['likes','pub_date','comments','user']
 
 class CommentForm(forms.ModelForm):
