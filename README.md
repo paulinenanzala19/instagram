@@ -5,25 +5,28 @@ This is an instagram clone
 Pauline Wafula
 
 ## Description
-InstaMe' is a web application that mimics a popular .This is through creationg posts with caption in different categories and location. On clicking on an image, it is able to take you to a bigger image with description, category and location.A new user can also search an image using category. They can also copy and paste the link of the image.
+InstaMe' is a web application that mimics a popular photo app, instagram .This is through creationg posts with caption.A user is able to like and comment on other users post. The can also click one the users profile to follow them and see their posts.A new user can also search for a post  using title.
 
 ## User Stories
 These are the behaviours/features that the application implements for use by a user.
 
 As a user I would like to:
 
-* See images that interest me 
-* Click on a photo to expand it and also view description of the photo
-* Search for different categories
-* Copy the images link
+* Sign in to the application to start using it 
+* upload my pictures to the application
+* See my profile with all my pictures
+* Follow other users and see there pictures on my timeline
+* Like a picture and leave a comment on it
 
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Display images posted by other users  | **On page load** | Display images of various categories |
-| Display images  | **On clicking a 'search' button** | Displays images under the searched category |
-| Display description, location and category | **Click a photo** |  Expanded version of the photo with description,location and category|
-| Copy link | **On clicking copy link button** | link copied|
+| Display login form or sign up incase you dont have an account  | **On page load** | Displays the registration form on clicking sign up |
+| Displays posts  | **On clicking a 'search' button** | Displays post under the searched title |
+| Displays a form to create post | **Click a plus square icon** | add a new post with the image ,title and caption |
+| profile page | **On clicking profile** | takes you to the use profile|
+|  logout | **On clicking logout** |logs out a user from thhe page|
+
 
 ## SetUp / Installation Requirements
 ### Prerequisites
@@ -34,8 +37,8 @@ As a user I would like to:
 * In your terminal:
 
 
-        $ git clone https://github.com/paulinenanzala19/Picture_Patch.git
-        $ cd gallery
+        $ git clone https://github.com/paulinenanzala19/instagram.git
+        $ cd instagram
 
 ## Running the Application
 * Creating the virtual environment
@@ -49,6 +52,7 @@ As a user I would like to:
         $ python3.8  pip install django
         $ python3.8  pip install django-bootstrap3
         $ python3.8  pip install pillow
+        $ python3.8  pip install django-registration
         
 
 * To run the application, in your terminal:
@@ -59,7 +63,8 @@ As a user I would like to:
 ## Testing the Application
 To run the tests for the class files:
 
-        $ python3.8 manage.py test pictures
+        $ python3.8 manage.py test insta
+        $ python3.8 manage.py test users
 
 ## Technologies Used
 * Python3.8
@@ -68,10 +73,10 @@ To run the tests for the class files:
 * CSS(Bootstrap)
 
 ## live link
-['']
+['https://nanzalainsta.herokuapp.com/']
 
 ## known bugs
-Not any at the moment but am open to suggestion
+The user profile is not displaying the user posts.
 
 ## License
 MIT License
