@@ -27,24 +27,28 @@
                 </a>
                 <div class="card-footer row" style="margin-left:2%;">
                     <div class="col-6" style="display: flex; margin-top: 1%;">
-                        <small style="opacity: 0.8; color: rgba(255, 255, 255, 0.1) !important;">
+                        <small>
                             <!-- Like Buttons Here -->
                             <a href="{% url 'likes' post.pk %}">
                             <span class="info" style="color:black ;"><i class="far fa-heart fa-2x" ></i></span>
-                                <!-- <i style="color: red; font-size: 20px;" class="fa fa-heart"></i> -->
                                 <p style="color: black;">{{post.likes}} likes</p>
                             </a>
                             
                         </small>
-                        <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
+                        <small style="margin-left: 15px;">
                             <a href="">
-                                <i style=" font-size: 22px; color:black;" class="far fa-comment"></i>
+                                <i style=" font-size: 22px; color:black; " class="far fa-comment"></i>
                                
                             </a>
                         </small>
-                        <small style="opacity: 0.8; margin-left:15px; color: rgba(255, 255, 255, 0.1) !important;">
+                        <small style="margin-left:15px;">
                             <a href="">
                                 <i style=" font-size: 22px; color:black;" class="far fa-paper-plane"></i>
+                            </a>
+                        </small>
+                         <small style=" margin-left:30%;">
+                            <a href="">
+                                <i style=" font-size: 22px; color:black;" class="far fa-bookmark"></i>
                             </a>
                         </small>
                         

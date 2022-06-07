@@ -29,29 +29,6 @@ class DetailView(DetailView):
     template='index.html'
     context_obj='post'
 
-# def post(request, pk):
-#     post = Post.objects.get(pk=pk)
-#     user = request.user
-#     form = CommentForm()
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = Comment(
-#                 author= user,
-#                 content=form.cleaned_data["content"],
-#                 post=post
-#             )
-#             comment.save()
-
-#     comments = Comment.objects.filter(post=post).order_by('-date_posted')
-#     context = {
-#         "post": post,
-#         "comments": comments,
-#         "form": form,
-#     }
-
-#     return self.get(self, request, pk, context)
-
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'caption', 'image']
